@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./buttons.js"></script>
+   <script type="text/javascript">
+
+    var VanillaRunOnDomReady = function() {
+      
+(function(){
+  var body = document.body,
+      startX = -100,
+      startY = -100,
+      w = document.documentElement.offsetWidth,
+      h = document.documentElement.offsetHeight;
+
+	body.addEventListener('mousemove', function(evt){
+    var posX = Math.round(evt.clientX / w * startX)
+    var posY = Math.round(evt.clientY / h * startY)
+    body.style.backgroundPosition = posX + 'px ' + posY + 'px'
+  })
+})()
+
+    }
+
+var alreadyrunflag = 0;
+
+if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", function(){
+        alreadyrunflag=1; 
+        VanillaRunOnDomReady();
+    }, false);
+else if (document.all && !window.opera) {
+    document.write('<script type="text/javascript" id="contentloadtag" defer="defer" src="javascript:void(0)"><\/script>');
+    var contentloadtag = document.getElementById("contentloadtag")
+    contentloadtag.onreadystatechange=function(){
+        if (this.readyState=="complete"){
+            alreadyrunflag=1;
+            VanillaRunOnDomReady();
+        }
+    }
+}
+
+window.onload = function(){
+  setTimeout("if (!alreadyrunflag){VanillaRunOnDomReady}", 0);
+}
+
+  //]]>
+</script>
+</head>
+<body>
+    <div id="fon"></div>
+    <section id="sect">
+        <input id="pole" class="textarea" type="text" disabled></input>
+    <div class="line">
+        
+        <button class="optional" type="button" onclick="delite()">AC</button>
+        <button class="functional"type="button" onclick="square()" >x<sup>2</sup></button>
+        <button class="functional"type="button" onclick="sqrt()" >&radic;</button>
+        <button class="functional" type="button" onclick="division()">/</button>
+    </div>
+    <div class="line">
+        <button class="number" type="button" onclick="seven()">7</button>
+        <button class="number" type="button" onclick="eight()">8</button>
+        <button class="number" type="button" onclick="nein()">9</button>
+        <button class="functional" type="button" onclick="multiplication()">*</button>
+    </div>
+    <div class="line">
+        <button class="number" type="button" onclick="four()">4</button>
+        <button class="number" type="button" onclick="five()">5</button>
+        <button class="number" type="button" onclick="six()">6</button>
+        <button class="functional" type="button" onclick="difference()">-</button>
+    </div>
+    <div class="line">
+        <button class="number" type="button" onclick="one()">1</button>
+        <button class="number" type="button" onclick="two()">2</button>
+        <button class="number" type="button" onclick="three()">3</button>
+        <button class="functional" type="button" onclick="sum()">+</button>
+    </div>
+    <div class="line">
+        <button class="number" type="button" onclick="nul()">0</button>
+        <button class="number" type="button" onclick="dot()">.</button>
+        <button class="equal" type="button" onclick="equal()">=</button>
+    </div>
+    </section>
+</body>
+</html>
