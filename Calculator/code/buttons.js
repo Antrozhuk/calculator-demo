@@ -2,30 +2,95 @@ function delite(){
     document.getElementById('pole').value= ""
 }
 function division(){
-    document.getElementById('pole').value+= '/'
+    let string=document.getElementById('pole').value;
+    let size=string.length;
+    if((string[size-1]=='/')||(string[size-1]=='+')||
+       (string[size-1]=='*')||(string[size-1]=='-')||(string[size-1]=='.'))
+    {
+        string=string.substring(0,size-1);
+    }
+    document.getElementById('pole').value=string+ '/'
 }
 function multiplication(){
-    document.getElementById('pole').value+= '*'
+    let string=document.getElementById('pole').value;
+    let size=string.length;
+    if((string[size-1]=='/')||(string[size-1]=='+')||
+       (string[size-1]=='*')||(string[size-1]=='-')||(string[size-1]=='.'))
+    {
+        string=string.substring(0,size-1);
+    }
+    document.getElementById('pole').value=string+ '*'
 }
 function difference(){
-    document.getElementById('pole').value+= '-'
+    let string=document.getElementById('pole').value;
+    let size=string.length;
+    if((string[size-1]=='/')||(string[size-1]=='+')||
+       (string[size-1]=='*')||(string[size-1]=='-')||(string[size-1]=='.'))
+    { 
+        string=string.substring(0,size-1);
+    }
+    document.getElementById('pole').value=string+ '-'   
 }
 function sum(){
-    document.getElementById('pole').value+= '+'
+    let string=document.getElementById('pole').value;
+    let size=string.length;
+    if((string[size-1]=='/')||(string[size-1]=='+')||
+       (string[size-1]=='*')||(string[size-1]=='-')||(string[size-1]=='.'))
+    {
+        string=string.substring(0,size-1);
+    }
+    document.getElementById('pole').value=string+ '+'
 }
 function sqrt(){
-    document.getElementById('pole').value=Math.sqrt(document.getElementById('pole').value);
+    let string=document.getElementById('pole').value;
+    let size=string.length;
+    if((string[size-1]=='/')||(string[size-1]=='+')||
+       (string[size-1]=='*')||(string[size-1]=='-')||(string[size-1]=='.'))
+    {
+        string=string.substring(0,size-1);
+    }
+    document.getElementById('pole').value=Math.sqrt(eval(string));
 }
 function square(){
-    document.getElementById('pole').value=(document.getElementById('pole').value)**2;
+    let string=document.getElementById('pole').value;
+    let size=string.length;
+    if((string[size-1]=='/')||(string[size-1]=='+')||
+       (string[size-1]=='*')||(string[size-1]=='-')||(string[size-1]=='.'))
+    {
+        string=string.substring(0,size-1);
+    }
+    document.getElementById('pole').value=eval(string)**2;
 }
 function equal(){
-    document.getElementById('pole').value=eval(document.getElementById('pole').value);
+    let string=document.getElementById('pole').value;
+    let size=string.length;
+    if((string[size-1]=='/')||(string[size-1]=='+')||
+       (string[size-1]=='*')||(string[size-1]=='-')||(string[size-1]=='.'))
+    {
+        string=string.substring(0,size-1);
+    }
+    document.getElementById('pole').value=eval(string);
 }
 function dot(){
-    document.getElementById('pole').value+= '.'
+    let string=document.getElementById('pole').value+'.';
+    if(eval(string))
+    {
+        document.getElementById('pole').value+= '.'
+    }
 }
 function nul(){
+    let string=document.getElementById('pole').value;
+    let size=string.length;
+    if(string=='0')
+    {
+        document.getElementById('pole').value+= '.0'
+    }else
+     if((size==0)||(string[size-1]=='/')||(string[size-1]=='+')||
+    (string[size-1]=='*')||(string[size-1]=='-'))
+    {
+        document.getElementById('pole').value+= '0.'
+    }
+    else
     document.getElementById('pole').value+= 0
 }
 function one(){
