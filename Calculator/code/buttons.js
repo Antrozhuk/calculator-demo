@@ -24,12 +24,27 @@ function multiplication(){
 function difference(){
     let string=document.getElementById('pole').value;
     let size=string.length;
-    if((string[size-1]=='/')||(string[size-1]=='+')||
-       (string[size-1]=='*')||(string[size-1]=='-')||(string[size-1]=='.'))
+    if(string[size-1]=='/')
     { 
-        string=string.substring(0,size-1);
+        string=-eval(string.substring(0,size-1));
+        document.getElementById('pole').value=string+ '/' 
     }
-    document.getElementById('pole').value=string+ '-'   
+    if(string[size-1]=='*')
+    { 
+        string=-eval(string.substring(0,size-1));
+        document.getElementById('pole').value=string+ '*' 
+    }
+    else if(string[size-1]=='-')
+    {
+        string=string.substring(0,size-1);
+        document.getElementById('pole').value=string+ '+'
+    }
+    else if((string[size-1]=='-')||(string[size-1]=='.'))
+    {
+        string=string.substring(0,size-1);
+        document.getElementById('pole').value=string+ '-'   
+    }
+    else document.getElementById('pole').value=string+ '-'
 }
 function sum(){
     let string=document.getElementById('pole').value;
